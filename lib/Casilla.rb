@@ -3,11 +3,11 @@ module ModeloQytetet
 
 class Casilla
   
-  def initialize(numeroCasilla, coste, casilla, titulo)
+  def initialize(numeroCasilla, coste, tipo, titulo)
     
     @numeroCasilla = numeroCasilla
     @coste = coste
-    @casilla = casilla
+    @tipo= tipo
     @titulo = titulo
     @hipotecado = false
     @numCasas = 0
@@ -15,15 +15,56 @@ class Casilla
     
   end
   
-  attr_reader :numeroCasilla, :coste, :casilla, :titulo, :hipotecado
+  attr_reader :numeroCasilla, :coste, :tipo, :titulo, :hipotecado
   attr_accessor :numCasas, :numHoteles
   
-  def self.titulos_predeterminados(numeroCasilla, casilla)
-    new(numeroCasilla, 0, casilla, 0)
+=begin
+/-------------------------------------------------------------------------------------------/
+=end  
+  
+  protect
+  
+  def asignarPropietario(jugador)
+    
+  end
+  
+  def calcularValorHipoteca()
+    
+  end
+  
+  def cancelarHipoteca()
+    
+  end
+  
+  def cobrarAlquiler()
+    
+  end
+  
+  def edificarCasa()
+    
+  end
+  
+  def edificarHotel()
+    
+  end
+  
+  def estaHipotecada()
+    
+  end
+  
+  def estaHipotecada()
+    
+  end
+=begin
+/-------------------------------------------------------------------------------------------/
+=end   
+  
+  def self.titulos_predeterminados(numeroCasilla, tipo)
+    new(numeroCasilla, 0, tipo, 0)
   end
   
   def to_s
-    "\nNumero Casilla = #{@numeroCasilla} \nCoste = #{@coste} \nNumero Hoteles = #{@numHoteles} \nNumero Casas = #{@numCasas} \nCasilla = #{@casilla}, \nTitulo = #{@titulo}"
+    "\nNumero Casilla = #{@numeroCasilla} \nCoste = #{@coste} \nNumero Hoteles = #{@numHoteles} \nNumero Casas = #{@numCasas} \nCasilla = #{@tipo}, \nTitulo = #{@titulo}"
   end
   
 end

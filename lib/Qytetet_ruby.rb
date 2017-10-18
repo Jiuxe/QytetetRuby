@@ -3,16 +3,116 @@ module ModeloQytetet
 require_relative "Sorpresa"
 require_relative "TipoSorpresa"
 require_relative "Tablero"
+require "singleton"
 
 class QytetetRuby
+  
+  include Singleton
   
   def initialize
     
     @mazo = Array.new
+    @tablero
+    @MAXJUGADORES = Array.new
+    @@MAX_JUGADORES = 4
+    @MAX_CARTAS = 10
+    @MAX_CASILLAS = 20
+    @PRECIO_LIBERTAD = -200
+    @SALDO_SALIDA = 1000
+    @cartaActual
+    @jugadorActual
+  end
+
+  attr_reader :cartaActual, :jugadorActual
+  
+=begin
+/---------------------------------------------------------------------------------------------------------/
+=end
+  
+  public
+  
+  def aplicarSorpresa
+    
+  end
+  
+  def cancelarHipoteca(casilla)
+    
+  end
+  
+  def comprarTituloPropiedad()
+    
+  end
+  
+  def edificarCasa(casilla)
+    
+  end
+  
+  def edificarHotel(casilla)
+    
+  end
+
+  def hipotecarPropiedad(casilla)
+    
+  end
+  
+  def inicializarJuego(nombres)
+    
+  end
+  
+  def intentarSalirCarcel(metodo)
+    
+  end
+  
+  def jugar()
+    
+  end
+  
+  def obtenerRanking()
+    
+  end
+  
+  def propiedadesHipotecadasJugador(hipotecadas)
+    
+  end
+  
+  def siguienteJugador()
+    
+  end
+  
+  def venderPropiedad(casilla)
+    
+  end
+  
+  private
+    
+  def encarcelarJugador()
+    
+  end
+  
+  def inicializarJugadores(nombres)
+    
+    nombres.each do |i|
+      
+      @MAXJUGADORES << Jugador.new(i)
+    
+    end
+    
+  end
+  
+  def inicializarTablero()
+    
     @tablero = Tablero.new
   end
   
-  def inicializar_sorpresas
+  def salidaJugadores()
+    
+  end
+
+  
+=begin
+/---------------------------------------------------------------------------------------------------------/
+=end  
+  def inicializarCartasSorpresa
     
     @mazo << Sorpresa.new("Faltas a un Examen Final por quedarte dormido. Debes ir a la carcel", @tablero.carcel.numeroCasilla, TipoSorpresa::IRACASILLA )
     @mazo << Sorpresa.new("Consigues un justificante falso argumentando que has tenido Lagunosis. Sales carcel", 0, TipoSorpresa::SALIRCARCEL)
@@ -28,54 +128,11 @@ class QytetetRuby
     
   end
   
-  def metodo1
-    
-    @mazo2 = Array.new
-    
-    @mazo.each do |i|
-      
-      if(i.valor > 0)
-        @mazo2 << i
-      end
-    end
-    
-    return @mazo2
-  end
   
-  def metodo2
-    
-    @mazo3 = Array.new
-    
-    @mazo.each do |i|
-      
-      if(i.tipo == TipoSorpresa::IRACASILLA)
-        @mazo3 << i
-      end
-    end
-    
-    return @mazo3
-  end
-  
-  def metodo3(sorpresa)
-    
-    @mazo4 = Array.new
-    
-    @mazo.each do |i|
-      
-      if(i.tipo == sorpresa)
-        @mazo4 << i
-      end
-    end
-    
-    return @mazo4
-  end
   
   def main
     
     inicializar_sorpresas
-    
-    puts @mazo
-    puts @tablero
     
   end
 end
