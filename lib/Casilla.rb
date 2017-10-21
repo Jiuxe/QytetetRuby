@@ -7,7 +7,7 @@ class Casilla
     
     @numeroCasilla = numeroCasilla
     @coste = coste
-    @tipo= tipo
+    @tipo = tipo
     @titulo = titulo
     @hipotecado = false
     @numCasas = 0
@@ -55,6 +55,50 @@ class Casilla
   def estaHipotecada()
     
   end
+  
+  def hipotecar()
+    
+  end
+  
+  def precioTotalComprar()
+    
+  end
+  
+  def propietarioEncarcelado()
+    
+  end
+  
+  def sePuedeEdificarCasa()
+    
+  end
+  
+  def sePuedeEdificarHotel()
+    
+  end
+  
+  def soyEdificable()
+    
+  end
+  
+  def tengoPropietario()
+    
+  end
+  
+  def venderTitulo()
+    
+  end
+  
+  private
+  
+  def asignarTituloPropiedad()
+    
+  end
+  
+  def setTituloPropiedad(titulo)
+    
+    @titulo = titulo
+  end
+  
 =begin
 /-------------------------------------------------------------------------------------------/
 =end   

@@ -3,6 +3,7 @@ module ModeloQytetet
   require_relative "Casilla"
   require_relative "TipoCasilla"
   require_relative "TituloPropiedad"
+  
 class Tablero
 
   def initialize
@@ -40,6 +41,26 @@ class Tablero
 
   attr_reader :carcel
   
+=begin
+/------------------------------------------------------------------------------------------------------------------------------/
+=end
+
+  def obtenerCasillaNumero(numeroCasilla)
+    
+  end
+  
+  def obtenerNuevaCasilla(casilla)
+    
+  end
+  
+  def esCasillaCarcel(numeroCasilla)
+    
+  end
+  
+=begin
+/------------------------------------------------------------------------------------------------------------------------------/
+=end
+
   
   def to_s
     "Casillas = #{@casillas.to_s}"

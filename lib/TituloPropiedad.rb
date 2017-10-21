@@ -9,10 +9,35 @@ class TituloPropiedad
     @hipotecaBase = hipotecaBase
     @precioEdificar = precioEdificar
     @factorRevalorizacion = factorRevalorizacion
+    @hipotecada = false
+    @casilla
+    @propietario
     
   end
   
   attr_reader :nombre, :alquilerBase, :hipotecaBase, :precioEdificar, :factorRevalorizacion
+  attr_accessor :hipotecada
+  attr_writer :casilla, :propietario  
+  
+=begin
+/-----------------------------------------------------------------------------------------------------/
+=end  
+  
+  def cobrarAlquiler(coste)
+    
+  end
+  
+  def tengoPropietario()
+    
+  end
+  
+  def propietaroEncarcelado()
+    
+  end
+  
+=begin
+/------------------------------------------------------------------------------------------------------/
+=end  
   
   def to_s
     
