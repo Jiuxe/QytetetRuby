@@ -1,4 +1,4 @@
-module ModeloQytetet
+  module ModeloQytetet
 
   class Jugador
     
@@ -19,14 +19,10 @@ module ModeloQytetet
 =begin
 /---------------------------------------------------------------------------------------------/
 =end
-    
-    public
-    
+        
     def tengoPropiedades()
       
     end
-    
-    protected
     
     def actualizarPosicion(casilla)
       
@@ -88,8 +84,6 @@ module ModeloQytetet
       
     end 
     
-    private
-    
     def cuantasCasasHotelesTengo()
       
     end
@@ -106,6 +100,7 @@ module ModeloQytetet
       
     end
     
+    private :cuantasCasasHotelesTengo, :eliminarDeMisPropiedades, :esDeMipropiedad, :tengoSaldo
     
 =begin
 /----------------------------------------------------------------------------------------------/

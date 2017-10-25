@@ -15,14 +15,12 @@ class Casilla
     
   end
   
-  attr_reader :numeroCasilla, :coste, :tipo, :titulo, :hipotecado
-  attr_accessor :numCasas, :numHoteles
+  attr_reader :numeroCasilla, :coste, :tipo, :hipotecado
+  attr_accessor :numCasas, :numHotele
   
 =begin
 /-------------------------------------------------------------------------------------------/
 =end  
-  
-  protect
   
   def asignarPropietario(jugador)
     
@@ -88,16 +86,15 @@ class Casilla
     
   end
   
-  private
+  def setTituloPropiedad(titulo)
+    @titulo = titulo
+  end
   
   def asignarTituloPropiedad()
     
   end
   
-  def setTituloPropiedad(titulo)
-    
-    @titulo = titulo
-  end
+  private :asignarTituloPropiedad, :setTituloPropiedad
   
 =begin
 /-------------------------------------------------------------------------------------------/

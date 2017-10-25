@@ -3,6 +3,7 @@ module ModeloQytetet
 require_relative "Sorpresa"
 require_relative "TipoSorpresa"
 require_relative "Tablero"
+require_relative "Jugador"
 require "singleton"
 
 class QytetetRuby
@@ -28,8 +29,6 @@ class QytetetRuby
 =begin
 /---------------------------------------------------------------------------------------------------------/
 =end
-  
-  public
   
   def aplicarSorpresa
     
@@ -82,9 +81,7 @@ class QytetetRuby
   def venderPropiedad(casilla)
     
   end
-  
-  private
-    
+      
   def encarcelarJugador()
     
   end
@@ -108,6 +105,7 @@ class QytetetRuby
     
   end
 
+  private :encarcelarJugador, :inicializarJugadores, :inicializarTablero, :salidaJugadores
   
 =begin
 /---------------------------------------------------------------------------------------------------------/
@@ -126,18 +124,23 @@ class QytetetRuby
     @mazo << Sorpresa.new("Acoges a estudiantes de Erasmus en tu casa. Cobra 100 por cada hotel", 100, TipoSorpresa::PORCASAHOTEL)
     @mazo << Sorpresa.new("Encontra de tu voluntad te eligen delegado de la Clase. Cobra 100 a cada Jugador", 100, TipoSorpresa::PORJUGADOR)
     
-  end
-  
-  
+  end 
   
   def main
     
-    inicializar_sorpresas
+    
+    inicializarTablero
+    inicializarCartasSorpresa
+    
+    nombres = ["1","2","3","4"]
+    
+    inicializarJugadores(nombres)
     
   end
 end
 
-obj = QytetetRuby.new
+obj = QytetetRuby.instance
 obj.main
+
 puts "FIN"
 end

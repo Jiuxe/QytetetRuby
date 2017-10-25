@@ -5,8 +5,6 @@ module ModeloQytetet
     def initialize
       
     end
-  
-    protected
     
     def tirar
      
