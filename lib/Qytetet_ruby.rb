@@ -14,7 +14,7 @@ class QytetetRuby
     
     @mazo = Array.new
     @tablero
-    @MAXJUGADORES = Array.new
+    @JUGADORES = Array.new
     @@MAX_JUGADORES = 4
     @MAX_CARTAS = 10
     @MAX_CASILLAS = 20
@@ -71,10 +71,25 @@ class QytetetRuby
   end
   
   def propiedadesHipotecadasJugador(hipotecadas)
+            
+      propiedades = @jugadorActual.obtenerPropiedadesHipotecadas(hipotecadas)
+      propiedadesH = []
+      
+      propiedades.each do |i|
+        
+        propiedadesH[] = propiedades(i).casilla       #--------------------ESTA MAL SEGUROOO---------------
+      end
+      
+    return propiedadesH
+      
+      
+      
     
   end
   
   def siguienteJugador()
+    
+    @jugadorActual = @JUGADORES.at((@JUGADORES.index(@jugadorActual)+1)%@MAX_JUGADORES)
     
   end
   
@@ -90,7 +105,7 @@ class QytetetRuby
     
     nombres.each do |i|
       
-      @MAXJUGADORES << Jugador.new(i)
+      @JUGADORES << Jugador.new(i)
     
     end
     
@@ -102,6 +117,16 @@ class QytetetRuby
   end
   
   def salidaJugadores()
+    
+    @JUGADORES.each do |i|
+      
+      i.actualizarPosicion(@tablero.obtenerCasillaNumero(0))
+      
+    end
+
+    @JUGADORES.shuffle
+    
+    @jugadorActual = @JUGADORES.at(0)
     
   end
 

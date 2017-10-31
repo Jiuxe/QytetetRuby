@@ -47,13 +47,19 @@ class Tablero
 
   def obtenerCasillaNumero(numeroCasilla)
     
+    return @casillas.at(numeroCasilla)
+    
   end
   
-  def obtenerNuevaCasilla(casilla)
+  def obtenerNuevaCasilla(casilla,desplazamiento)
+    
+    return @casillas.at((casilla.numeroCasilla+desplazamiento)% @casillas.size)
     
   end
   
   def esCasillaCarcel(numeroCasilla)
+    
+    return (numeroCasilla == @carcel.numeroCasilla)
     
   end
   
