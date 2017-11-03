@@ -24,7 +24,7 @@ class QytetetRuby
     @jugadorActual
   end
 
-  attr_reader :cartaActual, :jugadorActual
+  attr_reader :cartaActual, :jugadorActual, :tablero, :mazo, :JUGADORES
   
 =begin
 /---------------------------------------------------------------------------------------------------------/
@@ -56,6 +56,10 @@ class QytetetRuby
   
   def inicializarJuego(nombres)
     
+    inicializarTablero
+    inicializarJugadores(nombres)
+    inicializarCartasSorpresa
+    
   end
   
   def intentarSalirCarcel(metodo)
@@ -71,25 +75,18 @@ class QytetetRuby
   end
   
   def propiedadesHipotecadasJugador(hipotecadas)
-            
-      propiedades = @jugadorActual.obtenerPropiedadesHipotecadas(hipotecadas)
-      propiedadesH = []
-      
-      propiedades.each do |i|
-        
-        propiedadesH[] = propiedades(i).casilla       #--------------------ESTA MAL SEGUROOO---------------
-      end
-      
-    return propiedadesH
-      
-      
-      
     
   end
   
-  def siguienteJugador()
+=begin
+  Asigna a jugadorActual al siguiente en la lista de jugadores. Si
+  el turno lo tenía el último jugador de la lista, se pasará el turno al primero de la lista.
+=end    
+  def siguienteJugador
     
-    @jugadorActual = @JUGADORES.at((@JUGADORES.index(@jugadorActual)+1)%@MAX_JUGADORES)
+    posicion = @JUGADORES.index(@jugadorActual)
+    
+    @jugadorActual = @JUGADORES.at((posicion+1)%@JUGADORES.size)
     
   end
   
@@ -115,15 +112,18 @@ class QytetetRuby
     
     @tablero = Tablero.new
   end
+=begin
+  Posiciona a todos los jugadores en la casilla de salida, con un
+  saldo de 7500 € y asigna de forma aleatoria el jugador actual.
+=end 
   
-  def salidaJugadores()
+  def salidaJugadores
     
     @JUGADORES.each do |i|
       
-      i.actualizarPosicion(@tablero.obtenerCasillaNumero(0))
-      
+      i.actualizarPosicion(0)
     end
-
+    
     @JUGADORES.shuffle
     
     @jugadorActual = @JUGADORES.at(0)
@@ -131,6 +131,7 @@ class QytetetRuby
   end
 
   private :encarcelarJugador, :inicializarJugadores, :inicializarTablero, :salidaJugadores
+  
   
 =begin
 /---------------------------------------------------------------------------------------------------------/
@@ -151,6 +152,7 @@ class QytetetRuby
     
   end 
   
+=begin  
   def main
     
     
@@ -161,11 +163,18 @@ class QytetetRuby
     
     inicializarJugadores(nombres)
     
+    puts @JUGADORES.at(1)
+    
   end
+=end  
+  
 end
 
+=begin
 obj = QytetetRuby.instance
 obj.main
 
 puts "FIN"
+=end
+
 end

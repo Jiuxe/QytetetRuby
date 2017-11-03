@@ -45,21 +45,39 @@ class Tablero
 /------------------------------------------------------------------------------------------------------------------------------/
 =end
 
+=begin
+  Devuelve la casilla que está en la
+  posición dada en el argumento. Es precondición que numeroCasilla sea mayor que 0 y
+  menor que el número máximo de casillas, por lo que no es necesario comprobarlo dentro
+  del método.
+=end
+  
   def obtenerCasillaNumero(numeroCasilla)
-    
-    return @casillas.at(numeroCasilla)
-    
+    return @casilla.at(numeroCasilla)
   end
   
-  def obtenerNuevaCasilla(casilla,desplazamiento)
+=begin
+  Devuelve la casilla que está desplazamiento posiciones después de la posición de la casilla dada en el
+  argumento. Ten en cuenta que el tablero es circular, de manera que si se sobrepasa la
+  última casilla, se debe continuar por la primera.
+=end  
+  
+  def obtenerNuevaCasilla(casilla, desplazamiento)
     
-    return @casillas.at((casilla.numeroCasilla+desplazamiento)% @casillas.size)
+    desplazamiento += casilla.numeroCasilla
     
+    return @casilla.at(desplazamiento)
   end
   
+=begin
+  Devuelve true si numeroCasilla se
+  corresponde con el número de casilla de la cárcel
+  y false en caso contrario.
+=end
+
   def esCasillaCarcel(numeroCasilla)
     
-    return (numeroCasilla == @carcel.numeroCasilla)
+    return numeroCasilla == @carcel.casilla
     
   end
   
@@ -69,7 +87,11 @@ class Tablero
 
   
   def to_s
-    "Casillas = #{@casillas.to_s}"
+    texto = "Tablero = "
+    @casillas.each do |i|
+      texto+=i.to_s
+    end
+    return texto
   end
 end
 

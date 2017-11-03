@@ -8,6 +8,8 @@ module ModeloQytetet
     
     def tirar
      
+        return (1+rand(5))
+      
     end
     
   end

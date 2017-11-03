@@ -105,7 +105,14 @@ class Casilla
   end
   
   def to_s
-    "\nNumero Casilla = #{@numeroCasilla} \nCoste = #{@coste} \nNumero Hoteles = #{@numHoteles} \nNumero Casas = #{@numCasas} \nCasilla = #{@tipo}, \nTitulo = #{@titulo}"
+    @texto
+      if @tipo == TipoCasilla::CALLE
+        @texto= "Casilla{ numeroCasilla=  #{@numeroCasilla}, tipo= #{@tipo}, coste=  #{@coste} , numHoteles= #{@numHoteles}, numCasas= #{@numCasas},
+           #{@titulo} }\n"
+      else
+        @texto= "Casilla{ numeroCasilla=  #{@numeroCasilla}, tipo=  #{@tipo} }\n"
+      end
+    return @texto
   end
   
 end

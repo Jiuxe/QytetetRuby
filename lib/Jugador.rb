@@ -106,5 +106,10 @@
 /----------------------------------------------------------------------------------------------/
 =end    
     
+    def to_s()
+      
+      "Nombre = #{@nombre} \nSaldo = #{@saldo} \nCasilla Actual = #{@casillaActual} \nPropiedades = #{@propiedades}"
+    end
+    
   end
 end
